@@ -65,14 +65,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/visionmedia/debug.git"
+    "url": "git://github.com/kamilko2006kk/debug.git"
   },
   "scripts": {
-    "lint": "xo",
-    "test": "npm run test:node && npm run test:browser && npm run lint",
-    "test:browser": "karma start --single-run",
-    "test:coverage": "cat ./coverage/lcov.info | coveralls",
-    "test:node": "istanbul cover _mocha -- test.js"
   },
   "version": "4.3.1"
 }
