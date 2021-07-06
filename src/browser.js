@@ -10,15 +10,8 @@ exports.load = load;
 exports.useColors = useColors;
 exports.storage = localstorage();
 exports.destroy = (() => {
-	let warned = false;
-
-	return () => {
-		if (!warned) {
-			warned = true;
-			console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
-		}
-	};
-})();
+	 
+});
 
 /**
  * Colors.
@@ -176,16 +169,7 @@ if(typeof window!=="undefined" && window._log){
  * @api private
  */
 function save(namespaces) {
-	try {
-		if (namespaces) {
-			exports.storage.setItem('debug', namespaces);
-		} else {
-			exports.storage.removeItem('debug');
-		}
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
+	
 }
 
 /**
@@ -195,20 +179,7 @@ function save(namespaces) {
  * @api private
  */
 function load() {
-	let r;
-	try {
-		r = exports.storage.getItem('debug');
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-
-	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = process.env.DEBUG;
-	}
-
-	return r;
+	return "*";
 }
 
 /**
